@@ -1,0 +1,49 @@
+\name{CpssFdrInfo}
+\alias{CpssFdrInfo}
+\title{Estimate FDR thresholds based on Complementary Pairs Stability Selection}
+\usage{
+  CpssFdrInfo(cpss.selections, predictors = NULL,
+    target.fdrs = NULL, selection.thresholds = NULL,
+    q = NULL, fdr = TRUE)
+}
+\arguments{
+  \item{cpss.selections}{A matrix of logical/binary
+  indicators, or 0-1 probabilties if averaged over multiple
+  imputation chains, of selection of variables across the
+  complementary pairs subset analyses. Rows are variables,
+  columns are subset analyses}
+
+  \item{predictors}{Which subset of predictors to perform
+  the FDR calculation over. Default NULL means all will be
+  considered.}
+
+  \item{target.fdrs}{A vector of FDR levels to calculate
+  posterior probability thresholds for. Default NULL}
+
+  \item{selection.thresholds}{Alternatively, a vector of
+  selection probability thresholds, for which to calculate
+  the FDR for, can be provided. Default NULL}
+
+  \item{q}{Optional estimate of q - the true number of
+  "signal" variables. If left NULL the sum of CPSS
+  selection probabilities is used as a plug-in estimate
+  (assuming the lambda's are cross-validated)}
+
+  \item{fdr}{whether or not to return FDRs rather than
+  "p-value" type measure}
+}
+\value{
+  fdr.info A list containing the target FDR rates, info for
+  each including the posterior probability threhsold and
+  the estimated FDR rate at that threshold across the
+  permutations. The list of covariates reaching each
+  threshold is also included
+}
+\description{
+  This implements the FDR calculation developed by Shah and
+  Samworth for Complementary Pairs Stability Selection
+}
+\author{
+  Paul Newcombe
+}
+

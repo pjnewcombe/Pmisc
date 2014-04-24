@@ -1,0 +1,25 @@
+\name{FdrPlot}
+\alias{FdrPlot}
+\title{Diagnostic plot of FDR information}
+\usage{
+  FdrPlot(fdr.info, fdrs.to.plot = NULL,
+    fdr.cols = c(`0.01` = "blue", `0.05` = "green", `0.1` = "red"))
+}
+\arguments{
+  \item{fdr.info}{A list of FDR information generated with
+  the function FdrInf}
+
+  \item{fdrs.to.plot}{A vector of FDRs to plot diagnostics
+  for}
+
+  \item{target.fdr.cols}{A named vector of colours for each
+  FDR line in the plot}
+}
+\description{
+  Diagnostic plot of impact of including increasing number
+  of permutations
+}
+\author{
+  Paul Newcombe
+}
+

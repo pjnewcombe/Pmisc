@@ -1,0 +1,18 @@
+Package: Pmisc
+Type: Package
+Title: My miscellaneous functions.
+Version: 0.1-02-12-2013
+Date: 02-12-2013
+Author: Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>
+Maintainer: Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>
+Description: All my miscellaneous functions
+License: GPL
+Collate:
+    'Functions.R'
+    'CpssFdrInfo.R'
+    'CrossValFolds.R'
+    'FdrInfo.R'
+    'FdrPlot.R'
+    'Pmisc-package.R'
+    'PredictivePerformance.R'
+    'RocPlots.R'

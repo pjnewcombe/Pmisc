@@ -1,0 +1,67 @@
+\name{FdrInfo}
+\alias{FdrInfo}
+\title{Estimate FDR thresholds based on permuted outcome label analyses}
+\usage{
+  FdrInfo(observed.post.probs = NULL, results = NULL,
+    permuted.post.probs = NULL, perm.res.files = NULL,
+    predictors = NULL, target.fdrs = c(0.01, 0.05, 0.1),
+    n.cuts.order = 5, diagnostic.plot.info = TRUE)
+}
+\arguments{
+  \item{observed.post.probs}{A vector of posterior
+  probabilities from the observed (i.e. `real') data
+  analysis. Note - MUST be named. Either this must be
+  provided, or the results object below.}
+
+  \item{results}{Java MCMC results class object. Either
+  this must be provided, or the vector of posterior
+  probabilities above.}
+
+  \item{permuted.post.probs}{A matrix of posterior
+  probabilities from permuted analyses - rows are variables
+  and columns are the different permuted outcome analyses.
+  Either this must be provided, or the list of results
+  files below.}
+
+  \item{perm.res.files}{A list of results files for all the
+  permuted outcomes analyses with identifier "_perm1"
+  included in the file name for, e.g., the first
+  permutation. If multiple imputation was carried out the
+  results file corresponding to each imputation is included
+  in the list. Either this must be provided, or the matrix
+  of posterior probabilities from each permuted label
+  analysis (see above).}
+
+  \item{predictors}{Which subset of predictors to perform
+  the FDR calculation over. Default NULL means all will be
+  considered.}
+
+  \item{target.fdrs}{A vector of FDR levels to calculate
+  posterior probability thresholds for. Default is 0.01,
+  0.05, 0.1}
+
+  \item{n.cuts.order}{Order of magnitude for vector length
+  of possible thresholds to explore}
+
+  \item{diagnostic.plot.info}{Whether to generate
+  information for a diagnostic plot (involves repeating
+  calulcations adding each permutation one by one) which
+  can be time consuming. Default it TRUE.}
+}
+\value{
+  fdr.info A list containing the target FDR rates, info for
+  each including the posterior probability threhsold and
+  the estimated FDR rate at that threshold across the
+  permutations. The list of covariates reaching each
+  threshold is also included
+}
+\description{
+  Given observed posterior probabilties, and those
+  calculated under permutations of the outcome labels, this
+  function calculates posterior probability thresholds for
+  different target false discovery rates
+}
+\author{
+  Paul Newcombe
+}
+
