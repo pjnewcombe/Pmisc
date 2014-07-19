@@ -1,27 +1,29 @@
 #' Automates writing of the -package.Rd file, which contains basic info about the
-#' package. The version number has today's date appended. NOTE: The working 
-#' directory must be set to the package directory before this
-#' function is invoked.
+#' package. The version number has today's date appended. Takes descriptive 
+#' information from the files TextTitle.txt, TextDescription.txt, and
+#' TextOverview.txt which are stored in the root of the package folder.
 #' 
 #' @export
 #' @title Automates writing of the package overview Rd file.
 #' @name WritePackageRd
 #' @param package.name The name of the package
-#' @param title Text for the title field
-#' @param description Text for the description field; if none is given the title is used.
-#' @param description Overview of the package, most important functions etc. If none is
-#' given the description is used.
+#' @param package.location Directory all R packages are stored in.
 #' @param version Version number which today's date will be appended to. Default is 0.1
 #' 
 WritePackageRd <- function(
   package.name,
-  title = NULL,
-  description = title,
-  overview = description,
+  package.location="/Users/pauln/Dropbox/Work Projects/R Packages",
   version = 0.1
   ) {
   
-  rd.file <- paste("man/",package.name,"-package.Rd",sep="")
+  ### --- Read in info
+  title <- scan(file.path(package.location,package.name,"TextTitle.txt"), what="character", sep="\t")
+  description <- scan(file.path(package.location,package.name,"TextDescription.txt"), what="character", sep="\t")
+  overview <- scan(file.path(package.location,package.name,"TextOverview.txt"), what="character", sep="\t")
+  
+  rd.file <- paste(
+    file.path(package.location,package.name),
+    "/man/",package.name,"-package.Rd",sep="")
   
   ### --- Basic info
   write(paste("\\name{",package.name,"-package}",sep=""), rd.file)

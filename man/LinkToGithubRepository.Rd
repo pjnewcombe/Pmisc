@@ -1,0 +1,23 @@
+\name{LinkToGithubRepository}
+\alias{LinkToGithubRepository}
+\title{Link to a github repository of the same name.}
+\usage{
+  LinkToGithubRepository(package.name,
+    package.location = "/Users/pauln/Dropbox/Work Projects/R Packages",
+    github.username = "pjnewcombe", reconnection = FALSE)
+}
+\arguments{
+  \item{package.name}{The name of the package}
+
+  \item{package.location}{Directory all R packages are
+  stored in.}
+
+  \item{github.username}{Github account username. Set to
+  NULL to skip linking to a github repository of the same
+  name.}
+}
+\description{
+  This function links a package to a github repository of
+  the same name.
+}
+

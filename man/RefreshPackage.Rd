@@ -1,0 +1,33 @@
+\name{RefreshPackage}
+\alias{RefreshPackage}
+\title{Regenerate and reinstall a package.}
+\usage{
+  RefreshPackage(package.name,
+    package.location = "/Users/pauln/Dropbox/Work Projects/R Packages",
+    github.username = "pjnewcombe", commit.message = NULL,
+    version = 0.1)
+}
+\arguments{
+  \item{package.name}{The name of the package}
+
+  \item{package.location}{Directory all R packages are
+  stored in.}
+
+  \item{github.username}{Optional Github account username.
+  If provided all files will be added.}
+
+  \item{commit.message}{Optional github commit can be
+  performed by providing a commit message. Default is NULL.
+  be added.}
+
+  \item{version}{Version number which today's date will be
+  appended to. Default is 0.1}
+}
+\description{
+  This function refreshes a package: - Updates the
+  description and package.rd files - Runs roxygen and
+  re-generates documentation - Reinstalls - Updates local
+  git repository if a username is given - Uploads changes
+  to git if a commit.message is given
+}
+
