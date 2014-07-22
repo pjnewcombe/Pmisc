@@ -1,20 +1,21 @@
-#' This function is to be run after creating a pckage as following:
-#' 
+#' This function sets up a package (initated in github and RStudio as described below) as follows:
+#' - Copies in basic function templates (with roxygen comments).
+#' - Copies in `TextDescription.txt', `TextOverview.txt' and `TextTitle.txt' templates to the root.
+#' - Creates descritpion and -package.rd files using the Pmisc functions.
+#' - Runs roxygen to generate function documentation.
+#' - Sets up github if a username is provided:
+#'    - Creates github README.rd file
+#'    - Adds the github repository url with 'git remote add origin'
+#'    - Performs the first commit.
+#'- Generates a `REFRESH' file tailored with the package name, and places
+#' in the package root directory.
+#' To setup a blank project in github and RStudio, to run this function on:
 #' 1) Go to your github account and create a new repository with
-#' the same name as the package you want to initiate
-#' 2) Open RStudio
+#' the same name as the package you want to initiate. NOTE: Must
+#' be empty.
+#' 2) Open RStudio.
 #' 3) File -> New Project -> New Directory -> R Package
 #'    Check `Create a git repository for this project.'
-#' 
-#' This function will:
-#' - Copy in a couple of basic function templates (with roxygen comments).
-#' - Copy over `TextDescription.txt', `TextOverview.txt' and `TextTitle.txt' templates.
-#' - Create descritpion and -package.rd files using the Pmisc functions.
-#' - Run roxygen to generate documentation.
-#' - Create a github README.rd file, initiate the github connection and
-#' perform the first commit.
-#' - Generate a `REFRESH' file tailored with the package name, and place
-#' in the package root directory.
 #' 
 #' @export
 #' @title Initiate package with roxygen templates, github link and refresh file.
@@ -33,18 +34,19 @@ InitiatePackage <- function(
   reconnection = FALSE
   ) {
   
+  ### --- Load roxygen and set working directory
   library(roxygen2)
   setwd(file.path(package.location,package.name))
-  ### --- Delete file created by RStudio - prevents installation
+  
+  ### --- Check this is a new package by looking for the default file created by RStudio.
+  ### Delete since it prevents installation as is empty.
   try(system( paste("rm '",
                     file.path(package.location, package.name, "R", paste(package.name,"R",sep=".")),
                     "'",sep="") ), silent=T)
-  
-  
-  ###########################################
-  ### --- Copy over example templates --- ###
-  ###########################################
-  
+    
+  cat("\n-----------------------------------------------")
+  cat("\n--- Copying over example function templates ---")
+  cat("\n-----------------------------------------------\n")  
   pmisc.root <- path.package("Pmisc")
   system( paste(
     "cp '",pmisc.root,"/PackageInitiation/Roxygen/'* '",
@@ -83,19 +85,20 @@ InitiatePackage <- function(
   cat("\n------------------------\n")
   system(command=paste("R CMD INSTALL '",file.path(package.location,package.name),"'",sep=""))
   
-  
-  ############################
-  ### --- Setup Github --- ###
-  ############################
-
+  cat("\n-----------------------------------------------")
+  cat("\n--- Setting up github ---")
+  cat("\n-----------------------------------------------\n")  
   if (!is.null(github.username)) {
-    LinkToGithubRepository(package.name,package.location,github.username,reconnection)
+    LinkToGithubRepository(
+      package.name=package.name,
+      package.location=package.location,
+      github.username=github.username,
+      reconnection=reconnection)
   }  
   
-  #########################################
-  ### --- Generate a REFRESH.R file --- ###
-  #########################################
-  
+  cat("\n----------------------------------")
+  cat("\n--- Generating REFRESH file... ---")
+  cat("\n----------------------------------\n")
   system( paste(
     "cp '",pmisc.root,"/PackageInitiation/REFRESH/REFRESH.R' '",
     file.path(package.location,package.name),"/REFRESH_",package.name,".R'",

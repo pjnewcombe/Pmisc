@@ -33,7 +33,7 @@ LinkToGithubRepository <- function(
     
     ### --- Make first git commit of the github readme file
     system("git add README.md")
-    system("git commit -m 'first commit' ")  
+    system("git commit -m 'First commit.' ")  
   }
   system("git push -u origin master")
 }

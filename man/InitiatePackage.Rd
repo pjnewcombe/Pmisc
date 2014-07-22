@@ -21,24 +21,24 @@
   appended to. Default is 0.1}
 }
 \description{
-  This function is to be run after creating a pckage as
-  following:
-}
-\details{
-  1) Go to your github account and create a new repository
-  with the same name as the package you want to initiate 2)
-  Open RStudio 3) File -> New Project -> New Directory -> R
-  Package Check `Create a git repository for this project.'
-
-  This function will: - Copy in a couple of basic function
-  templates (with roxygen comments). - Copy over
+  This function sets up a package (initated in github and
+  RStudio as described below) as follows: - Copies in basic
+  function templates (with roxygen comments). - Copies in
   `TextDescription.txt', `TextOverview.txt' and
-  `TextTitle.txt' templates. - Create descritpion and
-  -package.rd files using the Pmisc functions. - Run
-  roxygen to generate documentation. - Create a github
-  README.rd file, initiate the github connection and
-  perform the first commit. - Generate a `REFRESH' file
-  tailored with the package name, and place in the package
-  root directory.
+  `TextTitle.txt' templates to the root. - Creates
+  descritpion and -package.rd files using the Pmisc
+  functions. - Runs roxygen to generate function
+  documentation. - Sets up github if a username is
+  provided: - Creates github README.rd file - Adds the
+  github repository url with 'git remote add origin' -
+  Performs the first commit. - Generates a `REFRESH' file
+  tailored with the package name, and places in the package
+  root directory. To setup a blank project in github and
+  RStudio, to run this function on: 1) Go to your github
+  account and create a new repository with the same name as
+  the package you want to initiate. NOTE: Must be empty. 2)
+  Open RStudio. 3) File -> New Project -> New Directory ->
+  R Package Check `Create a git repository for this
+  project.'
 }
 

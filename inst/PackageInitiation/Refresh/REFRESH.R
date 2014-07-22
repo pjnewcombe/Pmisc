@@ -1,5 +1,4 @@
-package.name <- "Pmisc"
-commit.message <- NULL # Set to text for a commit
+commit.message <- NULL
 
 ### --- Load Pmisc and refresh the package
 library(Pmisc)
