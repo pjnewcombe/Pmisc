@@ -38,8 +38,18 @@ InitiatePackage <- function(
   library(roxygen2)
   setwd(file.path(package.location,package.name))
   
-  ### --- Check this is a new package by looking for the default file created by RStudio.
-  ### Delete since it prevents installation as is empty.
+  ### --- Check this is a new package by looking for the read-and-deleta and the default file created by RStudio.
+  read.and.delete.file <- file.path(package.location, package.name, "Read-and-delete-me")
+  auto.created.file <- file.path(package.location, package.name, "R", paste(package.name,"R",sep="."))
+  if ( !file.exists(read.and.delete.file) | !file.exists(auto.created.file) ) {
+    stop("This package is not newly created by RStudio. This function should only be applied with new
+         packages, otherwise it may write over work.")
+  }
+  
+  ### --- Delete these files (especially important to delete the latter since, being empty, it prevents installation).
+  try(system( paste("rm '",
+                    file.path(package.location, package.name, "Read-and-delete-me"),
+                    "'",sep="") ), silent=T)
   try(system( paste("rm '",
                     file.path(package.location, package.name, "R", paste(package.name,"R",sep=".")),
                     "'",sep="") ), silent=T)

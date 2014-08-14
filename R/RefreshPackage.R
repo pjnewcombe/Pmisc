@@ -49,6 +49,8 @@ RefreshPackage <- function(
     cat("\n--------------------------")
     cat("\n--- Updating Github... ---")
     cat("\n--------------------------\n")
+    try(system("git add DESCRIPTION"), silent=T)
+    try(system("git add NAMESPACE"), silent=T)
     try(system("git add -A R"), silent=T)
     try(system("git add -A man"), silent=T)
     try(system("git add -A Examples"), silent=T)

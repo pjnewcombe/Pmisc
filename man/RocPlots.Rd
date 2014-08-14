@@ -1,16 +1,17 @@
 \name{RocPlots}
 \alias{RocPlots}
-\title{Takes a list of objects returned by PredictivePerformance.}
+\title{Takes a list of objects returned by the ROCR function PredictivePerformance.}
 \usage{
-  RocPlots(cvperfs, main.title = NULL, fpr.stop = 1,
+  RocPlots(rocr.list, main.title = NULL, fpr.stop = 1,
     tpr.stop = 1, lwd = 2, roc.cols = NULL,
     include.legend = TRUE,
     include.percentage.diffs = FALSE,
     avg.type = "threshold")
 }
 \arguments{
-  \item{cvperfs}{A named list of objects from the
-  PredictivePerformance function}
+  \item{rocr.list}{A named list of objects created using
+  the ROCR function PredictivePerformance, or by using the
+  Pmisc function FormatRocrObjects}
 
   \item{main}{Main plot title (default NULL)}
 
@@ -30,6 +31,25 @@
   imputation (if the argument n.mi.chains is used), in
   which case the performance measures are calculated within
   each chain, then averaged.
+}
+\examples{
+require(ROCR)
+require(Pmisc)
+
+n.vars <- 10
+n.folds <- 10
+
+# Example predictions and outcomes (in matrix format)
+predictions.list <- list()
+predictions.list[[1]] <- matrix(rnorm(100,0,1),n.vars,n.folds)
+predictions.list[[2]] <- matrix(rnorm(100,0,1),n.vars,n.folds)
+true.outcomes <- matrix(rbinom(n=100,size=1,prob=0.5),n.vars,n.folds)
+
+# Use function to construct ROCR objects for plotting
+rocs <- FormatRocrObjects(predictions.list, true.outcomes)
+
+# Plot
+RocPlots(rocs)
 }
 \author{
   Paul Newcombe

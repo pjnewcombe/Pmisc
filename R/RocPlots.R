@@ -4,20 +4,22 @@
 #' performance measures are calculated within each chain, then averaged.
 #' 
 #' @export
-#' @title Takes a list of objects returned by PredictivePerformance.
+#' @title Takes a list of objects returned by the ROCR function PredictivePerformance.
 #' @name RocPlots
 #' 
-#' @param cvperfs A named list of objects from the PredictivePerformance function
+#' @param rocr.list A named list of objects created using the ROCR function PredictivePerformance,
+#' or by using the Pmisc function FormatRocrObjects
 #' @param main Main plot title (default NULL)
 #' @param fpr.stop An optional maximum false positive rate (x-axis) to calculate truncated
 #' ROC curves
 #' @param lwd Line width of ROC curves (default 1)
 #' @param roc.cols Optional named vector of colours to use for the different ROC curves
+#' @example Examples/RocPlots_Example.R
 #' 
 #' @author Paul Newcombe
 
 RocPlots <- function(
-  cvperfs,
+  rocr.list,
   main.title=NULL,
   fpr.stop=1,
   tpr.stop=1,
@@ -28,13 +30,16 @@ RocPlots <- function(
   avg.type="threshold"
   ) {
   require(ROCR)
-  analysis.names <- names(cvperfs) 
+  if (is.null(names(rocr.list))) {
+    names(rocr.list) <- paste(c(1:length(rocr.list)))    
+  }
+  analysis.names <- names(rocr.list) 
   
   if (is.null(roc.cols)) {
     if (length(analysis.names)==2) {
       roc.cols <- c("blue","red")
     } else {
-      roc.cols <- rainbow(length(cvperfs))
+      roc.cols <- rainbow(length(rocr.list))
     }
     names(roc.cols) <- analysis.names    
   }
@@ -45,14 +50,14 @@ RocPlots <- function(
   formatted.aucs <- aucs
   formatted.auc.percentage.diffs <- aucs
   for (m in analysis.names) {
-    plot(cvperfs[[m]]$roc,
+    plot(rocr.list[[m]]$roc,
          avg=avg.type,
          col = roc.cols[m],
-         add = (which(names(cvperfs)==m)!=1),
+         add = (which(names(rocr.list)==m)!=1),
          lwd = lwd,
          xlim=c(0,fpr.stop),
          ylim=c(0,tpr.stop))
-    aucs[m] <-  mean(unlist(performance(cvperfs[[m]]$rocr,"auc", fpr.stop=fpr.stop)@y.values))*(1/fpr.stop)
+    aucs[m] <-  mean(unlist(performance(rocr.list[[m]]$rocr,"auc", fpr.stop=fpr.stop)@y.values))*(1/fpr.stop)
     formatted.aucs[m] <- sprintf("%.2f", aucs[m])
   }
   abline(a=0,b=1, lty=2, col="darkgrey")

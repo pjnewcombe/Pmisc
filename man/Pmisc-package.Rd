@@ -8,7 +8,7 @@
 \tabular{ll}{
   Package: \tab Pmisc\cr
   Type: \tab Package\cr
-  Version: \tab 0.1-22-07-2014\cr
+  Version: \tab 0.1-14-08-2014\cr
   License: \tab GPL (>=2)\cr }
 A collection of miscellaneous functions.
 }

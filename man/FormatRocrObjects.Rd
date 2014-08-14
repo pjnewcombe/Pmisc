@@ -1,0 +1,31 @@
+\name{FormatRocrObjects}
+\alias{FormatRocrObjects}
+\title{Formats predictions into a ROCR `object' to plot using the RocPlots function.}
+\usage{
+  FormatRocrObjects(predictions.list, true.outcomes)
+}
+\arguments{
+  \item{predictions.list}{A named list of predictions for
+  each different analysis/model, for each person/variable,
+  and for each fold/replicate. First level is the
+  analysis/model names. Second level can be matrices (rows
+  people/vars, cols folds/replicates) or a list where each
+  element corresponds to a different fold/replicate, and
+  contains a vector of predictions across
+  people/replicates.}
+
+  \item{true.outcomes}{The true outcomes of
+  disease/variable causality. Can be a matrix (rows
+  people/vars, cols folds/replicates) or a list where each
+  element corresponds to a different fold/replicate, and
+  contains a vector of truth indicators. NOTE: These are
+  assumed to be the same across analyses.}
+}
+\description{
+  Formats predictions into a ROCR `object' to plot using
+  the RocPlots function.
+}
+\author{
+  Paul Newcombe
+}
+
