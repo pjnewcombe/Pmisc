@@ -15,7 +15,7 @@
 #' @param V total number of variables
 #' @param mu model space mean
 #' @param n.var number of specific variables (default is 1)
-#' @return prior probability for a single variable
+#' @return The prior probability for a single variable
 #' @author Paul Newcombe
 .ModelSpaceSpecProb <- function(V, mu, n.var=1) {
   ### Normalising constant for truncated Poisson
