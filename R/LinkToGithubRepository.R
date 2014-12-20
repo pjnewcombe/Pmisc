@@ -1,4 +1,4 @@
-#' This function links a package to a github repository of the same name.
+#' This function links a package to a github repository of the same name. Test Mod
 #' 
 #' @export
 #' @title Link to a github repository of the same name.
