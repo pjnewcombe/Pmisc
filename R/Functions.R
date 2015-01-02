@@ -1,6 +1,6 @@
 #' Calculates a Bayes Facotor, give a prior and posterior probabiltiies. Check2
 #' 
-#' @param prior.prob prior probability
+#' @param prior.prob prior probabilit
 #' @param post.prob posterior probability
 #' @return Bayes Factor
 #' @author Paul Newcombe
