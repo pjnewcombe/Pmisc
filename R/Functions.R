@@ -5,7 +5,7 @@
 #' @return Bayes Factor
 #' @author Paul Newcombe
 .BayesFactor <- function(prior.prob, post.prob) {
-  priorOdds <- prior.prob/(1-prior.prob)
+  priorOdds <- prior.prob/(1-prior.prob) # Test comment
   postOdds <- post.prob/(1-post.prob)
   bayesFactor <- postOdds/priorOdds
   return(bayesFactor)
