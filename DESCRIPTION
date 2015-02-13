@@ -1,8 +1,8 @@
 Package: Pmisc
 Type: Package
 Title: A collection of miscellaneous functions.
-Version: 0.1-07-01-2015
-Date: 07-01-2015
+Version: 0.1-12-01-2015
+Date: 12-01-2015
 Author: Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>
 Maintainer: Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>
 Description: A collection of miscellaneous functions.

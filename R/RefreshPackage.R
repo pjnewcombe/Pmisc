@@ -33,7 +33,7 @@ RefreshPackage <- function(
   cat("\n--- Updating DESCRIPTION and -package.rd files ---")
   cat("\n--------------------------------------------------\n")
   WriteDescription(package.name, package.location, version)
-  WritePackageRd(package.name, package.location, version)
+#  WritePackageRd(package.name, package.location, version)
     
   cat("\n--------------------------")
   cat("\n--- Running Roxygen... ---")
