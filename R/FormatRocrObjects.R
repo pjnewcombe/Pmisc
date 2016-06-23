@@ -12,12 +12,14 @@
 #' (rows people/vars, cols folds/replicates) or a list where each element corresponds to
 #' a different fold/replicate, and contains a vector of truth indicators. NOTE: These are
 #' assumed to be the same across analyses.
+#' @param fpr.stop Maximum x to go up to on the x-axis for a partial ROC
 #' 
 #' @author Paul Newcombe
 
 FormatRocrObjects <- function(
   predictions.list,
-  true.outcomes
+  true.outcomes,
+  fpr.stop=1
   ) {
   require(ROCR)
   
@@ -41,9 +43,9 @@ FormatRocrObjects <- function(
   for (a in analysis.names) {
     rocs[[a]] <- list()
     rocs[[a]]$rocr <- prediction(predictions.list[[a]], true.outcomes)
-    rocs[[a]]$roc <- performance(rocs[[a]]$rocr,"tpr","fpr")
+    rocs[[a]]$roc <- performance(rocs[[a]]$rocr,"tpr","fpr",fpr.stop=fpr.stop)
     rocs[[a]]$ppvTpr <- performance(rocs[[a]]$rocr,"ppv","tpr")
-    rocs[[a]]$aucs.reps <- unlist(performance(rocs[[a]]$rocr,"auc")@y.values)
+    rocs[[a]]$aucs.reps <- unlist(performance(rocs[[a]]$rocr,"auc",fpr.stop=fpr.stop)@y.values)
     rocs[[a]]$auc <- mean(rocs[[a]]$aucs.reps)    
   }
   

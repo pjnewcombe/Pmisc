@@ -38,7 +38,7 @@ RefreshPackage <- function(
   cat("\n--------------------------")
   cat("\n--- Running Roxygen... ---")
   cat("\n--------------------------\n")
-  roxygenise(package.dir=file.path(package.location,package.name))
+  roxygenise(package.dir=file.path(package.location,package.name),clean=TRUE)
   
   cat("\n------------------------")
   cat("\n--- Re-installing... ---")
