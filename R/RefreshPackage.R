@@ -19,7 +19,7 @@
 #' 
 RefreshPackage <- function(
   package.name,
-  package.location="/Users/pauln/Dropbox/Work Projects/R Packages",
+  package.location="/Users/paul/Dropbox/Work Projects/R Packages",
   github.username="pjnewcombe",
   commit.message=NULL,
   version = 0.1

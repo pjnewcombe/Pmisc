@@ -1,13 +1,14 @@
 Package: Pmisc
 Type: Package
 Title: A collection of miscellaneous functions.
-Version: 0.1-26-06-2016
-Date: 26-06-2016
+Version: 0.1-03-02-2017
+Date: 03-02-2017
 Author: Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>
 Maintainer: Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>
 Description: A collection of miscellaneous functions.
 License: GPL (>=2)
-Collate:
+RoxygenNote: 6.0.0
+Collate: 
     'Functions.R'
     'CpssFdrInfo.R'
     'CrossValFolds.R'
