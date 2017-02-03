@@ -5,8 +5,9 @@
 \title{Takes a list of objects returned by the ROCR function PredictivePerformance.}
 \usage{
 RocPlots(rocr.list, main.title = NULL, fpr.stop = 1, tpr.stop = 1,
-  lwd = 2, roc.cols = NULL, include.legend = TRUE,
-  include.percentage.diffs = FALSE, avg.type = "threshold")
+  lwd = 1, roc.cols = NULL, include.legend = TRUE,
+  include.percentage.diffs = FALSE, avg.type = "threshold",
+  legend.name.map = NULL, legend.cex = 1.2, legend.text.width = 0.2)
 }
 \arguments{
 \item{rocr.list}{A named list of objects created using the ROCR function PredictivePerformance,
@@ -18,6 +19,13 @@ ROC curves}
 \item{lwd}{Line width of ROC curves (default 1)}
 
 \item{roc.cols}{Optional named vector of colours to use for the different ROC curves}
+
+\item{legend.name.map}{A character vector of different names to display for the analyses in the legend.
+The elements are named with the current analysis names.}
+
+\item{legend.cex}{cex argument to pass to legend - controls overall size.}
+
+\item{legend.text.width}{text.width argument to pass to legend - controls width in terms of x scale.}
 
 \item{main}{Main plot title (default NULL)}
 }
