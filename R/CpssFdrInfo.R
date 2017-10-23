@@ -1,7 +1,8 @@
 #' @include Functions.R
 NULL
 
-#' Implements the FDR calculation developed by Shah and Samworth for Complementary Pairs Stability Selection
+#' Implements the FDR calculation developed by Shah and Samworth for FDR
+#' inferred by Complementary Pairs Stability Selection
 #' @export
 #' @title Estimate FDR thresholds based on Complementary Pairs Stability Selection
 #' @name CpssFdrInfo
