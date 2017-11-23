@@ -30,7 +30,8 @@ threhsold and the estimated FDR rate at that threshold across the permutations. 
 each threshold is also included
 }
 \description{
-Implements the FDR calculation developed by Shah and Samworth for Complementary Pairs Stability Selection
+Implements the FDR calculation which was developed by Shah and Samworth for FDR
+inferred by Complementary Pairs Stability Selection
 }
 \author{
 Paul Newcombe
