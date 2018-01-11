@@ -1,4 +1,4 @@
-#' Calculates a Bayes Facotor, give a prior and posterior probabiltiies. Check2
+#' Calculates a Bayes Facotor, given a prior and posterior probabilties. Check2
 #' 
 #' @param prior.prob prior probability
 #' @param post.prob posterior probability
