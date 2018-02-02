@@ -1,4 +1,4 @@
-#' Diagnostic plot of impact of including increasing number of permutations
+#' Diagnostic plot of the impact of including increasing number of permutations
 #' @export
 #' @title Diagnostic plot of FDR information
 #' @name FdrPlot
