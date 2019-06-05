@@ -4,7 +4,7 @@
 \alias{WriteDescription}
 \title{Automates writing of the description file}
 \usage{
-WriteDescription(package.name,
+WriteDescription(package.name, import.packages = NULL,
   package.location = "/Users/pauln/Dropbox/Work Projects/R Packages",
   version = 0.1)
 }

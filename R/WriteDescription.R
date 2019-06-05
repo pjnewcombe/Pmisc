@@ -11,6 +11,7 @@
 #' 
 WriteDescription <- function(
   package.name,
+  import.packages = NULL,
   package.location="/Users/pauln/Dropbox/Work Projects/R Packages",
   version = 0.1
   ) {
@@ -20,15 +21,17 @@ WriteDescription <- function(
   overview <- scan(file.path(package.location,package.name,"TextOverview.txt"), what="character", sep="\t")
   
   # Write info to the file `DESCRIPTION', using base R's write.dcf
-  write.dcf( list(
-    Package = package.name, Type = "Package",
-    Title = title,
-    Version = paste(version,format(Sys.time(), "%d-%m-%Y"),sep="-"),
-    Date=format(Sys.time(), "%d-%m-%Y"),
-    Author = "Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>",
-    Maintainer = "Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>",
-    Description = description,
-    License = "GPL (>=2)"),
+  write.dcf( 
+    list(
+      Package = package.name, Type = "Package",
+      Title = title,
+      Version = paste(version,format(Sys.time(), "%d-%m-%Y"),sep="-"),
+      Date=format(Sys.time(), "%d-%m-%Y"),
+      Author = "Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>",
+      Maintainer = "Paul J Newcombe <paul.newcombe@mrc-bsu.cam.ac.uk>",
+      Imports = import.packages,
+      Description = description,
+      License = "GPL (>=2)"),
     file = file.path(package.location,package.name,"DESCRIPTION")
     )
 }

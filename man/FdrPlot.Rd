@@ -15,7 +15,7 @@ FdrPlot(fdr.info, fdrs.to.plot = NULL, fdr.cols = c(`0.01` = "blue", `0.05`
 \item{target.fdr.cols}{A named vector of colours for each FDR line in the plot}
 }
 \description{
-Diagnostic plot of impact of including increasing number of permutations
+Diagnostic plot of the impact of including increasing number of permutations
 }
 \author{
 Paul Newcombe
