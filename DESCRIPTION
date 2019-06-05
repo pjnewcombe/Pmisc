@@ -18,8 +18,6 @@ Collate:
     'InitiatePackage.R'
     'LinkToGithubRepository.R'
     'PredictivePerformance.R'
-    'RefreshPackage.R'
     'RocPlots.R'
     'UniMultivariateComparison.R'
-    'WriteDescription.R'
     'WritePackageRd.R'
