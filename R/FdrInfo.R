@@ -1,7 +1,7 @@
 #' @include Functions.R
 NULL
 
-#' Given observed posterior probabilties, and those calculated under permutations of the outcome labels, this
+#' Given observed posterior probabilties for a set of covariates, and those calculated under permutations of the outcome labels, this
 #' function calculates posterior probability thresholds for different target false discovery rates.
 #' @export
 #' @title Estimate FDR thresholds based on permuted outcome label analyses
