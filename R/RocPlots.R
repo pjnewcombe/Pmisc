@@ -1,5 +1,5 @@
 #' Given a list of predictive scores, and a list of corresponding true outcomes, this function
-#' calculates various predictive performance measures. Note that this function can be used in
+#' calculates various predictive performance measures. This function can be used in
 #' the context of multiple imputation (if the argument n.mi.chains is used), in which case the
 #' performance measures are calculated within each chain then averaged.
 #' 
